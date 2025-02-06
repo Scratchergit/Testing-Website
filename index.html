@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time in Helsinki & Oulu</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .container { display: flex; justify-content: center; gap: 50px; }
+        .box { padding: 20px; border: 1px solid #ccc; border-radius: 10px; width: 200px; }
+    </style>
+</head>
+<body>
+
+<h1>Current Time</h1>
+<div class="container">
+    <div class="box">
+        <h2>Helsinki</h2>
+        <p id="time-helsinki"></p>
+    </div>
+    <div class="box">
+        <h2>Oulu</h2>
+        <p id="time-oulu"></p>
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        document.getElementById("time-helsinki").innerText = now.toLocaleTimeString("fi-FI", { timeZone: "Europe/Helsinki" });
+        document.getElementById("time-oulu").innerText = now.toLocaleTimeString("fi-FI", { timeZone: "Europe/Helsinki" });
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+
+</body>
+  </html>
