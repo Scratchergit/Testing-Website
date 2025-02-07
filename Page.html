@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .content { padding: 20px; border: 1px solid #ccc; border-radius: 10px; width: 300px; margin: auto; }
+    </style>
+</head>
+<body>
+
+<h1>Procedurally Generated Page</h1>
+<div class="content">
+    <h2 id="title"></h2>
+    <p id="description"></p>
+</div>
+<br>
+<a href="index.html">Back to Home</a>
+
+<script>
+    function generateContent(id) {
+        const titles = ["Mysterious Cave", "Lost City", "Hidden Valley", "Ancient Ruins", "Secret Laboratory"];
+        const descriptions = [
+            "You have discovered an ancient cave filled with secrets.",
+            "A lost city emerges from the mist, filled with unknown treasures.",
+            "A peaceful valley untouched by time lies before you.",
+            "Ruins of an old civilization whisper stories of the past.",
+            "A hidden lab containing strange experiments has been found."
+        ];
+        
+        const seed = id % titles.length; // Use the ID to pick content
+        document.getElementById("title").innerText = titles[seed];
+        document.getElementById("description").innerText = descriptions[seed];
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id) {
+        generateContent(parseInt(id));
+    } else {
+        document.body.innerHTML = "<h1>Invalid Page</h1><a href='index.html'>Go Back</a>";
+    }
+</script>
+
+</body>
+</html>
