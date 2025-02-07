@@ -3,37 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time in Helsinki & Oulu</title>
+    <title>Procedural Pages</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        .container { display: flex; justify-content: center; gap: 50px; }
-        .box { padding: 20px; border: 1px solid #ccc; border-radius: 10px; width: 200px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<h1>Current Time</h1>
-<div class="container">
-    <div class="box">
-        <h2>Helsinki</h2>
-        <p id="time-helsinki"></p>
-    </div>
-    <div class="box">
-        <h2>Oulu</h2>
-        <p id="time-oulu"></p>
-    </div>
-</div>
+<h1>Procedural Page Generator</h1>
+<p>Click below to generate a random page.</p>
+<button onclick="goToRandomPage()">Generate Page</button>
 
 <script>
-    function updateTime() {
-        const now = new Date();
-        document.getElementById("time-helsinki").innerText = now.toLocaleTimeString("fi-FI", { timeZone: "Europe/Helsinki" });
-        document.getElementById("time-oulu").innerText = now.toLocaleTimeString("fi-FI", { timeZone: "Europe/Helsinki" });
+    function goToRandomPage() {
+        const randomId = Math.floor(Math.random() * 10000); // Generate a random number
+        window.location.href = `page.html?id=${randomId}`; // Redirect to page.html with the ID
     }
-
-    updateTime();
-    setInterval(updateTime, 1000);
 </script>
 
 </body>
-  </html>
+</html>
